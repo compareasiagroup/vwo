@@ -5,12 +5,14 @@
     'en-HK': {
       annualPlan: 'Annual plan',
       chinaPlan: 'China plan',
-      singleDestination: 'Single trip destination'
+      singleDestination: 'Single trip destination',
+      btnText: 'Find a travel insurance'
     },
     'zh-HK': {
       annualPlan: '全年旅遊',
       chinaPlan: '中國旅遊 (受保期為一年)',
-      singleDestination: '單次旅遊目的地'
+      singleDestination: '單次旅遊目的地',
+      btnText: '立即比較並購買'
     }
   };
   var content = translation[lang];
@@ -536,6 +538,8 @@
     var url = location.pathname;
     $dropdown.append(listHtml);
     $dropdown.find('option').eq(1).after('<option disabled>------ ' + content.singleDestination + '------ </option>');
+    $btn.text(content.btnText);
+
     $btn.click(function() {
       var id = $dropdown.val();
       var item = getItemById(list, id);
