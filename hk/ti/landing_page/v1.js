@@ -535,7 +535,7 @@
 // need timeout here otherwise jquery selector can not select the element
   setTimeout(function() {
     var $dropdown = vwo_$('#goToFunnelSelectBox');
-    var $label = vwo_$('funnel-button__description');
+    var $label = vwo_$('.funnel-button__description');
     var $btn = vwo_$('#goToFunnelBtn');
 
     var url = location.pathname;
