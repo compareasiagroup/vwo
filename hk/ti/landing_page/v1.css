@@ -8,3 +8,8 @@
       float: right;
   }
 }
+@media (max-width: 991px){
+      .funnel-button__description{
+            color: #ffffff;
+      }
+}
