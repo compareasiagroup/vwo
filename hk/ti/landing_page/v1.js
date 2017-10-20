@@ -3,16 +3,18 @@
   var lang = ciabConstants.fullLocale;
   var translation = {
     'en-HK': {
-      annualPlan: 'Annual plan',
-      chinaPlan: 'China plan',
+      annualPlan: 'I want an Annual Plan',
+      chinaPlan: 'I want to travel around China',
       singleDestination: 'Single trip destination',
+      dropdownLabel: 'Start now and choose your destination',
       btnText: 'Find a travel insurance'
     },
     'zh-HK': {
-      annualPlan: '全年旅遊',
-      chinaPlan: '中國旅遊 (受保期為一年)',
+      annualPlan: '我想選購全年旅遊計劃',
+      chinaPlan: '我想到中國旅遊',
       singleDestination: '單次旅遊目的地',
-      btnText: '立即比較並購買'
+      dropdownLabel: '選擇目的地開始比較',
+      btnText: '立即比較並購買 只需1分鐘'
     }
   };
   var content = translation[lang];
@@ -533,11 +535,13 @@
 // need timeout here otherwise jquery selector can not select the element
   setTimeout(function() {
     var $dropdown = vwo_$('#goToFunnelSelectBox');
+    var $label = vwo_$('funnel-button__description');
     var $btn = vwo_$('#goToFunnelBtn');
 
     var url = location.pathname;
     $dropdown.append(listHtml);
     $dropdown.find('option').eq(1).after('<option disabled>------ ' + content.singleDestination + '------ </option>');
+    $label.text(content.dropdownLabel);
     $btn.text(content.btnText);
 
     $btn.click(function() {
