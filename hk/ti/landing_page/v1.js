@@ -14,7 +14,7 @@
       chinaPlan: '我想到中國旅遊',
       singleDestination: '單次旅遊目的地',
       dropdownLabel: '選擇目的地開始比較',
-      btnText: '立即比較並購買 只需1分鐘'
+      btnText: '立即比較並購買'
     }
   };
   var content = translation[lang];
