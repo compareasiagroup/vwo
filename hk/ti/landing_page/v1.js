@@ -541,14 +541,16 @@
     var $btn = vwo_$('#goToFunnelBtn');
 
     var url = location.pathname;
-    $dropdown.append('<option disabled>' + content.dropdownPlaceholder + '</option>');
+    $dropdown.append('<option value="" disabled selected>' + content.dropdownPlaceholder + '</option>');
     $dropdown.append(listHtml);
-    $dropdown.find('option').eq(1).after('<option disabled>------ ' + content.singleDestination + '------ </option>');
+    $dropdown.find('option').eq(2).after('<option disabled>------ ' + content.singleDestination + '------ </option>');
     $label.text(content.dropdownLabel);
     $btn.text(content.btnText);
 
     $btn.click(function() {
       var id = $dropdown.val();
+      if(!id) return;
+      
       var item = getItemById(list, id);
 
       var query = '?fromLandingPage=true&category=' + item.category;
