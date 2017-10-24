@@ -3,17 +3,19 @@
   var lang = ciabConstants.fullLocale;
   var translation = {
     'en-HK': {
+      dropdownPlaceholder: 'Please select from the dropdown',
       annualPlan: 'I want an Annual Plan',
-      chinaPlan: 'I want to travel around China',
+      chinaPlan: 'I want an Annual China Plan',
       singleDestination: 'Single trip destination',
-      dropdownLabel: 'Start now and choose your destination',
+      dropdownLabel: 'Where are you travelling to?',
       btnText: 'Find a travel insurance'
     },
     'zh-HK': {
+      dropdownPlaceholder: '請選擇目的地',
       annualPlan: '我想選購全年旅遊計劃',
-      chinaPlan: '我想到中國旅遊',
+      chinaPlan: '我想選購全年中國旅遊計',
       singleDestination: '單次旅遊目的地',
-      dropdownLabel: '選擇目的地開始比較',
+      dropdownLabel: '你準備去那些地方旅遊?',
       btnText: '立即比較並購買'
     }
   };
@@ -539,6 +541,7 @@
     var $btn = vwo_$('#goToFunnelBtn');
 
     var url = location.pathname;
+    $dropdown.append('<option disabled>' + content.dropdownPlaceholder + '</option>');
     $dropdown.append(listHtml);
     $dropdown.find('option').eq(1).after('<option disabled>------ ' + content.singleDestination + '------ </option>');
     $label.text(content.dropdownLabel);
