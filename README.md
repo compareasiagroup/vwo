@@ -19,7 +19,7 @@ vwo_$.getScript("https://rawgit.com/compareasiagroup/vwo/master/hk/ti/landing_pa
 to
 ```javascript
 vwo_$('head').append('<link rel="stylesheet" class="external-css-link" type="text/css" href="https://cdn.rawgit.com/compareasiagroup/vwo/9204df1/hk/ti/landing_page/v1.css">');
-vwo_$.getScript("https://cd.rawgit.com/compareasiagroup/vwo/9204df1/hk/ti/landing_page/v1.js" , function ( data, textStatus, jqxhr ) ...
+vwo_$.getScript("https://cdn.rawgit.com/compareasiagroup/vwo/9204df1/hk/ti/landing_page/v1.js" , function ( data, textStatus, jqxhr ) ...
 ```
 
 Please note
