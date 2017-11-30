@@ -3,6 +3,13 @@
 ## HK TI
 ### landing_page
 
+## PH CI
+### landing_page
+QUICK START
+```
+gulp start --src ./ph/ci/landing_page --app abTestApp
+```
+
 **DEV**
 JS & CSS files are served through https://rawgit.com
 
