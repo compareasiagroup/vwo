@@ -1,0 +1,5 @@
+<select ng-model="model" class="car-selector-dropdown" ng-class="{'error': options.showError}"
+        ng-disabled="options.disabled || !items.length">
+  <option value="" disabled selected ng-if="options.placeholder">{{options.placeholder}}</option>
+  <option ng-repeat="item in items" ng-value="item">{{options.modelKey ? item[options.modelKey]:item}}</option>
+</select>
