@@ -38,6 +38,10 @@ app
       hide: false
     };
 
+    $scope.getFunnelBtnOptions = {
+      hasDatalayerTracking: true
+    }
+
     $scope.validation = function() {
       var brand = $scope.carBrand;
       var model = $scope.carModel;
