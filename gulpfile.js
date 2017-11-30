@@ -5,7 +5,7 @@ var requireDir = require("require-dir");
 requireDir("./gulp");
 
 // client-side Gulp tasks
-gulp.task("build", ["scripts", "templates"]);
+gulp.task("build", ["scripts", "templates", "styles"]);
 
 gulp.task("start", ["server", "build", "watch"]);
 gulp.task("default", ["start"]);
