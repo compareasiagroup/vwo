@@ -1,5 +1,6 @@
 #ab-test-app {
     width: 580px;
+    font-family: proxima-nova,"Helvetica Neue",Helvetica,"Open Sans",Arial,sans-serif
 }
 
 .car-selector-container {
@@ -58,7 +59,6 @@
 }
 
 .car-selector-button__main-text {
-    width: 442px;
     height: 24px;
     font-size: 20px;
     font-weight: bold;

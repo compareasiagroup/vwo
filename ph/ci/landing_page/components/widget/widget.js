@@ -123,7 +123,7 @@ app
           sortBy: "price-"
         };
 
-        return abTestService.request(resultUrl, payload).then(function(data) {
+        return abTestService.request(resultUrl, $scope.payload).then(function(data) {
           $scope.result = data.products[0]; // general product with lowes price;
         });
       };
