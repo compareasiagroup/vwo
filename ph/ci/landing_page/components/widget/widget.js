@@ -134,7 +134,7 @@ app
     $scope.goToFunnel = function() {
       location.href =
         host +
-        "/car-insurance/car-information?" +
+        "/car-insurance/car-information#/step/1?" +
         abHelper.objectToQuery($scope.payload);
     };
   });
