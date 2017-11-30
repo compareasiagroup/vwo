@@ -4,7 +4,8 @@
   "description": "## HK TI ### landing_page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write \"ph/**/*.{js, css}\" \"./*.js\" \"gulp/*.js\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "gulp-ng-annotate": "^2.0.0",
     "gulp-template": "^4.0.0",
     "gulp-uglify": "^3.0.0",
+    "prettier": "^1.8.2",
     "require-dir": "^0.3.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
