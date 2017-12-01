@@ -15,6 +15,12 @@ app
         scope.items = [];
         var handler = attrs.apiHandler ? scope.apiHandler() : null;
 
+        scope.$watch("model", function(val, old) {
+          if (!old && val) {
+            scope.options.showError = false;
+          }
+        });
+
         if (attrs.dependOn) {
           scope.$watch("dependOn", function(val) {
             scope.items = [];

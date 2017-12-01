@@ -35,13 +35,15 @@
   text-align: left;
   color: #312f2e;
   margin: 5px 0;
+  cursor: pointer;
   /*  todo */ }
   @media (max-width: 992px) {
     .car-selector-dropdown {
       height: 50px;
       padding: 0 15px; } }
   .car-selector-dropdown:disabled {
-    color: #979290; }
+    color: #979290;
+    cursor: not-allowed; }
   .car-selector-dropdown.error {
     border: solid 3px #ff533f; }
 

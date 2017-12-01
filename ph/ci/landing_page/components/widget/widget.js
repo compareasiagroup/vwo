@@ -73,6 +73,12 @@ app
       }
     };
 
+    $scope.$watch("trimData", function(val) {
+      if (val) {
+        $scope.showErrorMsg = false;
+      }
+    });
+
     $scope.resultHandler = function() {
       if (!$scope.validation()) {
         return;
