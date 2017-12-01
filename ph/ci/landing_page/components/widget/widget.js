@@ -34,13 +34,9 @@ app
       };
     };
 
-    $scope.getResultBtnOptions = {
-      hide: false
-    };
+    $scope.getResultBtnOptions = {};
 
-    $scope.getFunnelBtnOptions = {
-      hasDatalayerTracking: true
-    }
+    $scope.getFunnelBtnOptions = {};
 
     $scope.validation = function() {
       var brand = $scope.carBrand;
@@ -81,6 +77,8 @@ app
       if (!$scope.validation()) {
         return;
       }
+
+      $scope.getResultBtnOptions.showSpinner = true;
 
       var carTrim = $scope.trimData.trim;
       var vehicleType = $scope.trimData.vehicleType;
@@ -127,15 +125,19 @@ app
           sortBy: "price-"
         };
 
-        return abTestService.request(resultUrl, $scope.payload).then(function(data) {
-          $scope.result = data.products[0]; // general product with lowes price;
-        });
+        return abTestService
+          .request(resultUrl, $scope.payload)
+          .then(function(data) {
+            $scope.result = data.products[0]; // general product with lowest price;
+            $scope.getResultBtnOptions.showSpinner = false;
+          });
       };
 
       getFMV().then(getResult);
     };
 
     $scope.goToFunnel = function() {
+      $scope.getFunnelBtnOptions.showSpinner = true;
       location.href =
         host +
         "/car-insurance/car-information#/step/1?" +

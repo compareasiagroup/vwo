@@ -1,6 +1,7 @@
 <div class="car-selector-container" id="ab-test-app">
   <div class="car-selector-title">
-    Tell us your car model, we’ll tell you the best deal:
+    <h3>Get an Instant quote now</h3>
+    <p>Tell us your car model, we’ll tell you the best deal:</p>
   </div>
 
   <div class="row">
@@ -30,27 +31,36 @@
   </div>
   <ab-button options="getResultBtnOptions" ng-show="!result" ng-click="resultHandler()">
     <div class="car-selector-button__main-text">Fill out the questions and find the best insurance</div>
-    <div class="car-selector-button__secondary-text">Get instant replies, free and non-binding</div>
   </ab-button>
 
   <div class="result-container row" ng-if="result">
     <div class="col-lg-12">
       <div class="result-title">
-        The cheapest deal for your car is offered by <strong>{{result.name}}:*</strong>
+        <strong>The cheapest deal for your car starts at :</strong>
       </div>
       <div class="result-item">
 
         <div class="result-price">
-          {{result.price.original}} PHP/year
+          {{result.price.original | currency : '' : 0}} PHP/year
         </div>
         <div class="result-deductible">
-          Deductible: {{result.price.deductible}} PHP
+          Deductible: {{result.price.deductible | currency : '' : 0}} PHP
         </div>
       </div>
     </div>
+    <div class="col-lg-12">
+      <ab-button options="getFunnelBtnOptions"
+                 ng-show="result"
+                 ng-click="goToFunnel()"
+                 ga-category="car-insurance"
+                 ga-action="Front Page Buttons"
+                 ga-label="Find the best insurance for my car">
+        <div class="car-selector-button__main-text">See this deal and all other results</div>
+        <div class="car-selector-button__secondary-text">Get instant replies, free and non-binding</div>
+      </ab-button>
+      <div class="result-footnote">
+        *Prices might change once all considerations have been filled in.
+      </div>
+    </div>
   </div>
-  <ab-button options="getFunnelBtnOptions" ng-show="result" ng-click="goToFunnel()">
-    <div class="car-selector-button__main-text">See this deal and all other results</div>
-    <div class="car-selector-button__secondary-text">Get instant replies, free and non-binding</div>
-  </ab-button>
 </div>
