@@ -38,6 +38,10 @@ app
       hide: false
     };
 
+    $scope.getFunnelBtnOptions = {
+      hasDatalayerTracking: true
+    }
+
     $scope.validation = function() {
       var brand = $scope.carBrand;
       var model = $scope.carModel;
@@ -134,7 +138,7 @@ app
     $scope.goToFunnel = function() {
       location.href =
         host +
-        "/car-insurance/car-information?" +
+        "/car-insurance/car-information#/step/1?" +
         abHelper.objectToQuery($scope.payload);
     };
   });
