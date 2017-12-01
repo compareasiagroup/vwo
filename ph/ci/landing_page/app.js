@@ -22,7 +22,7 @@ $right
 // in local, we can't get the API work
 var host = isLocal
   ? "http://philippines-qa.compareglobal.co.uk"
-  : location.host;
+  : location.origin;
 
 // ------ HERE BEGINS THE ANGULAR APP --------
 var app = angular.module("abTestApp", []);
