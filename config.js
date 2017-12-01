@@ -20,7 +20,8 @@ var config = {
   // gulp
   scripts: [src + "/**/*.js", "./bootstrap.js"],
   templates: [src + "/components/**/*.html"],
-  styles: [src + "/**/*.css"]
+  styles: [src + "/**/*.sass"],
+  mainSassPath: src + "/main.sass"
 };
 
 module.exports = config;

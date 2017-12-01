@@ -1,10 +1,14 @@
 var gulp = require("gulp");
-var concat = require("gulp-concat");
+var $ = require("gulp-load-plugins")();
 var config = require("../config");
 
 gulp.task("styles", function() {
   return gulp
-    .src(config.styles)
-    .pipe(concat(config.distFileName + ".css"))
-    .pipe(gulp.dest(config.dist));
+    .src(config.mainSassPath)
+    .pipe($.plumber())
+    .pipe($.sassGlob())
+    .pipe($.sass().on("error", $.sass.logError))
+    .pipe($.concat(config.distFileName + ".css"))
+    .pipe(gulp.dest(config.dist))
+    .pipe($.connect.reload());
 });

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write \"ph/**/*.{js, css}\" \"./*.js\" \"gulp/*.js\""
+    "prettier": "prettier --write \"ph/**/*.js\" \"./*.js\" \"gulp/*.js\""
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,16 @@
   },
   "homepage": "https://github.com/compareasiagroup/vwo#readme",
   "devDependencies": {
-    "browserify": "^14.5.0",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-ng-annotate": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-glob": "^1.0.8",
     "gulp-template": "^4.0.0",
     "gulp-uglify": "^3.0.0",
     "prettier": "^1.8.2",

@@ -1,6 +1,6 @@
 var path = require("path");
 var gulp = require("gulp");
-var connect = require("gulp-connect");
+var $ = require("gulp-load-plugins")();
 var config = require("../config");
 
 var cors = function(req, res, next) {
@@ -10,7 +10,7 @@ var cors = function(req, res, next) {
 };
 
 gulp.task("server", function(done) {
-  connect.server({
+  $.connect.server({
     port: 3009,
     root: config.dist,
     livereload: true,

@@ -1,6 +1,5 @@
 var gulp = require("gulp");
-var concat = require("gulp-concat");
-var ngAnnotate = require("gulp-ng-annotate");
+var $ = require("gulp-load-plugins")();
 var es = require("event-stream");
 var uglify = require("gulp-uglify");
 var templateCache = require("gulp-angular-templatecache");
@@ -17,7 +16,7 @@ gulp.task("scripts", function() {
 
   return es
     .merge(js, templates)
-    .pipe(concat(config.distFileName + ".js"))
-    .pipe(ngAnnotate())
+    .pipe($.concat(config.distFileName + ".js"))
+    .pipe($.ngAnnotate())
     .pipe(gulp.dest(config.dist));
 });
