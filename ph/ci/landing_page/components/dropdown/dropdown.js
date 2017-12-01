@@ -17,7 +17,7 @@ app
 
         if (attrs.dependOn) {
           scope.$watch("dependOn", function(val) {
-            scope.item = [];
+            scope.items = [];
             scope.model = "";
             var isValid =
               val &&
