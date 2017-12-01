@@ -1,15 +1,6 @@
-<a ng-if="!options.hasDatalayerTracking"
-   ng-hide="options.hide"
-   class="car-selector-button">
-  <div ng-transclude></div>
-</a>
-
-<!-- TODO: inject and compile -->
-<a ng-if="options.hasDatalayerTracking"
-   ng-hide="options.hide"
-   class="car-selector-button ciab-btn btn-trackable ciab-btn--orange hero-carousel_item-custom-quote_link"
-   ga-category="car-insurance"
-   ga-action="Front Page Buttons"
-   ga-label="Find the best insurance for my car">
-  <div ng-transclude></div>
+<a class="car-selector-button"
+   ng-class="{'disabled': options.showSpinner}">
+  <div ng-transclude
+       ng-if="!options.showSpinner"></div>
+  <ab-spinner ng-if="options.showSpinner"></ab-spinner>
 </a>
