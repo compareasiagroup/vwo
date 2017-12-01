@@ -8,6 +8,12 @@ gulp.task("styles", function() {
     .pipe($.plumber())
     .pipe($.sassGlob())
     .pipe($.sass().on("error", $.sass.logError))
+    .pipe(
+      $.autoprefixer({
+        browsers: ["last 2 versions"],
+        cascade: false
+      })
+    )
     .pipe($.concat(config.distFileName + ".css"))
     .pipe(gulp.dest(config.dist))
     .pipe($.connect.reload());
