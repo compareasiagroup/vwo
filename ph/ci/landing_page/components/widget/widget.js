@@ -137,6 +137,17 @@ app
               return a.price.original - b.price.original;
             })[0]; // general product with lowest price;
             $scope.getResultBtnOptions.showSpinner = false;
+
+            // scroll to result section
+            // need timeout here to wait for rendering
+            setTimeout(function() {
+              $("html, body").animate(
+                {
+                  scrollTop: $(".result-container").offset().top
+                },
+                1000
+              );
+            }, 0);
           });
       };
 
