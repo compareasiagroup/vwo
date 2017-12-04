@@ -127,14 +127,15 @@ app
           hasActsOfNature: false,
           primaryUse: "private",
           bodily_injured: 200000,
-          personal_accident: 250000,
-          sortBy: "price-"
+          personal_accident: 250000
         };
 
         return abTestService
           .request(resultUrl, $scope.payload)
           .then(function(data) {
-            $scope.result = data.products[0]; // general product with lowest price;
+            $scope.result = data.products.sort(function(a, b) {
+              return a.price.original - b.price.original;
+            })[0]; // general product with lowest price;
             $scope.getResultBtnOptions.showSpinner = false;
           });
       };
