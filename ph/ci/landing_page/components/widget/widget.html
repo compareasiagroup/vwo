@@ -10,18 +10,19 @@
     </div>
 
     <div class="col-lg-6">
-      <ab-dropdown model="carModel" options="carModelDropdown" depend-on="{brand: carBrand}"
+      <ab-dropdown model="carModel" options="carModelDropdown" depend-on="{brand: carBrand}" watch-on="carBrand"
                    api-handler="getDropdownItem()"></ab-dropdown>
     </div>
   </div>
 
   <div class="row margin-bottom">
     <div class="col-lg-6">
-      <ab-dropdown model="carYear" options="carYearDropdown" depend-on="{brand: carBrand, model: carModel}"
+      <ab-dropdown model="carYear" options="carYearDropdown" depend-on="{brand: carBrand, model: carModel}" watch-on="carModel"
                    api-handler="getDropdownItem()"></ab-dropdown>
     </div>
     <div class="col-lg-6">
       <ab-dropdown model="trimData" options="carTrimDropdown"
+                   watch-on="carYear"
                    depend-on="{brand: carBrand, model:carModel, year: carYear}"
                    api-handler="getDropdownItem()"></ab-dropdown>
     </div>

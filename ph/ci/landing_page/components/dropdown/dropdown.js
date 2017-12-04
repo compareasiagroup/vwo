@@ -7,6 +7,7 @@ app
         options: "=?",
         items: "=?",
         dependOn: "=?",
+        watchOn: "=?",
         apiHandler: "&?"
       },
       controller: "abDropdownController",
@@ -25,19 +26,15 @@ app
           }
         });
 
-        if (attrs.dependOn) {
-          scope.$watch("dependOn", function(val) {
+        if (attrs.dependOn && attrs.watchOn) {
+          scope.$watch("watchOn", function(val) {
             scope.items = [];
             scope.model = "";
-            var isValid =
-              val &&
-              Object.keys(val).every(function(key) {
-                return val[key];
-              });
+            var isValid = val;
 
             if (isValid && handler) {
               scope.showSpinner = true;
-              handler(val).then(function(data) {
+              handler(scope.dependOn).then(function(data) {
                 scope.items = data[scope.options.key];
                 scope.showSpinner = false;
               });
