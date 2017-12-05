@@ -90,7 +90,7 @@ app
       var vehicleType = $scope.trimData.vehicleType;
       if (vehicleType === "SQ") {
         // go to funnel
-        location.href = "/";
+        location.href = host + "/car-insurance/car-information#";
         return;
       }
 
