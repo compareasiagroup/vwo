@@ -1,5 +1,6 @@
-<div class="select__container" ng-class="{'select__container-disabled' : options.disabled || !items.length}">
-	<select ng-model="model" class="select__dropdown-box" ng-class="{'error': options.showError}"
+<div class="select__container" ng-class="{'select__container-disabled' : options.disabled || !items.length, 'error': options.showError}">
+	<span>{{model ? (options.modelKey ? model[options.modelKey] : model) : options.placeholder}}</span>
+	<select ng-model="model" class="select__dropdown-box"
 	        ng-disabled="options.disabled || !items.length">
 	  <option value="" disabled selected ng-if="options.placeholder">{{options.placeholder}}</option>
 	  <option ng-repeat="item in items" ng-value="item">{{options.modelKey ? item[options.modelKey]:item}}</option>
