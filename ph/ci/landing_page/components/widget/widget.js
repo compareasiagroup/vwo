@@ -89,11 +89,17 @@ app
       var carTrim = $scope.trimData.trim;
       var vehicleType = $scope.trimData.vehicleType;
       if (vehicleType === "SQ") {
+        var queryObj = {
+          carBrand: $scope.carBrand,
+          carModel: $scope.carModel,
+          carVintage: $scope.carYear,
+          carTrim: carTrim
+        };
         // go to funnel
         location.href =
           host +
           "/car-insurance/car-information#/step/1?" +
-          abHelper.objectToQuery($scope.payload);
+          abHelper.objectToQuery(queryObj);
         return;
       }
 
