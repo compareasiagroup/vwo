@@ -1,23 +1,6 @@
 .select
   &__container
     position: relative
-    &:after
-      background: #fff
-      content: '\e00a'
-      font-family: "CGG-icomoon" !important
-      right: 10px
-      top: 7px
-      padding: 6px 0 0 6px
-      position: absolute
-      pointer-events: none
-      color: #312f2e
-      font-size: 22px
-    &-disabled:after
-      color: #979290
-  &__dropdown-box
-    -webkit-appearance: none
-    -moz-appearance: none
-    appearance: none
     width: 100%
     height: 45px
     border-radius: 3px
@@ -30,22 +13,57 @@
     color: #312f2e
     margin: 5px 0
     cursor: pointer
-    padding: 10px
     @media (max-width: $screen-md)
       height: 50px
-      padding: 0 15px
-    &:disabled
-      color: #979290
-      cursor: not-allowed
+      margin: 10px 0 0 0
     &.error
       border: solid 2px #ff533f
+    &:after
+      background: #fff
+      content: '\e00a'
+      font-family: "CGG-icomoon" !important
+      right: 10px
+      top: 2px
+      padding: 6px 0 0 6px
+      position: absolute
+      pointer-events: none
+      color: #312f2e
+      font-size: 22px
+      @media (max-width: $screen-sm)
+        top: 4px
+    &-disabled
+      color: #979290
+      cursor: not-allowed
+      &:after
+        color: #979290
+    &-text
+      position: absolute
+      top: 10px
+      left: 10px
+      width: 200px
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      @media (max-width: $screen-sm)
+        width: 250px
+        top: 14px
+  &__dropdown-box
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    padding: 10px
+    width: 100%
+    height: 45px
+    opacity: 0
   &__spinner-container
     position: absolute
-    top: 10px
+    top: 5px
     left: 5px
     right: 5px
     bottom: 10px
     background: #fff
+    @media (min-width: $screen-md)
+      font-size: 14px
 select
   outline: none
   &::-ms-expand
