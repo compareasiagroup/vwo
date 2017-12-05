@@ -56,13 +56,14 @@
     height: 45px
     opacity: 0
   &__spinner-container
-    font-size: 30px
     position: absolute
     top: 5px
     left: 5px
     right: 5px
     bottom: 10px
     background: #fff
+    @media (min-width: $screen-md)
+      font-size: 14px
 select
   outline: none
   &::-ms-expand
