@@ -138,7 +138,9 @@ app
             })[0]; // general product with lowest price;
             $scope.getResultBtnOptions.showSpinner = false;
 
-            // scroll to result section
+            if (window.innerWidth >= 768) return;
+
+            // scroll to result section if it is mobile
             // need timeout here to wait for rendering
             setTimeout(function() {
               $("html, body").animate(
