@@ -14,7 +14,7 @@ app
     "$scope",
     function($scope) {
       $scope.options = $scope.options || {};
-      $scope.options.size = $scope.options.size || "medium";
+      $scope.options.size = $scope.options.size || "small";
       $scope.options.color = "grey";
     }
   ]);
