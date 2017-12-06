@@ -147,14 +147,15 @@ app
             })[0]; // general product with lowest price;
             $scope.getResultBtnOptions.showSpinner = false;
 
-            // if (!abHelper.isMobile()) return;
+            var $scrollTopElem = abHelper.isMobile()
+              ? $(".result-container")
+              : $(".carinsurance-landing");
 
-            // scroll to result section
             // need timeout here to wait for rendering
             setTimeout(function() {
               $("html, body").animate(
                 {
-                  scrollTop: $(".result-container").offset().top
+                  scrollTop: $scrollTopElem.offset().top
                 },
                 1000
               );
