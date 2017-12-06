@@ -7,5 +7,10 @@ app.factory("abHelper", function() {
       return prev + "&" + key + "=" + queryObj[key];
     }, "");
   };
+
+  abHelper.isMobile = function() {
+    return window.innerWidth < 768;
+  };
+
   return abHelper;
 });
