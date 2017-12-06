@@ -74,6 +74,9 @@ app
     };
 
     $scope.$watch("trimData", function(val) {
+      // remove result when trim is changed, users will need to click get quote button again after filling all the fields
+      $scope.result = null;
+
       if (val) {
         $scope.showErrorMsg = false;
       }
