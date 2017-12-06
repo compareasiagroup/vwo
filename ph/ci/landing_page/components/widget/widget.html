@@ -30,7 +30,13 @@
   <div class="error-message" ng-show="showErrorMsg">
     <i class="m-cgg-icon--warning"></i> Please answer the questions so we can give you an accure quote
   </div>
-  <ab-button options="getResultBtnOptions" ng-show="!result" ng-click="resultHandler()">
+  <ab-button class="ciab-btn btn-trackable ciab-btn--orange hero-carousel_item-custom-quote_link"
+             options="getResultBtnOptions"
+             ng-show="!result"
+             ng-click="resultHandler()"
+             ga-category="car-insurance"
+             ga-action="Front Page Buttons"
+             ga-label="Find the best insurance for my car">
     <div class="car-selector-button__main-text">Find the cheapest Car Insurance for my car</div>
   </ab-button>
 
@@ -50,12 +56,13 @@
       </div>
     </div>
     <div class="col-lg-12">
-      <ab-button options="getFunnelBtnOptions"
+      <ab-button class="ciab-btn btn-trackable ciab-btn--orange hero-carousel_item-custom-quote_link"
+                 options="getFunnelBtnOptions"
                  ng-show="result"
                  ng-click="goToFunnel()"
                  ga-category="car-insurance"
                  ga-action="Front Page Buttons"
-                 ga-label="Find the best insurance for my car">
+                 ga-label="Show results">
         <div class="car-selector-button__main-text">See this deal and all other results</div>
         <div class="car-selector-button__secondary-text">Get instant replies, free and non-binding</div>
       </ab-button>
