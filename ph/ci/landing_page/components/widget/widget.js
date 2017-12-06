@@ -147,7 +147,7 @@ app
             })[0]; // general product with lowest price;
             $scope.getResultBtnOptions.showSpinner = false;
 
-            if (!abHelper.isMobile()) return;
+            // if (!abHelper.isMobile()) return;
 
             // scroll to result section
             // need timeout here to wait for rendering
