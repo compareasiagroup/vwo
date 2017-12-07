@@ -264,7 +264,9 @@ select {
       color: #ffffff; }
     .car-selector-title p {
       color: #ffffff;
-      font-size: 17px; } }
+      font-size: 17px;
+      margin-bottom: 5px;
+      line-height: 21px; } }
 
 .margin-bottom {
   margin-bottom: 15px; }
@@ -324,3 +326,13 @@ select {
   @media (max-width: 767px) {
     .result-footnote {
       color: #ffffff; } }
+
+@media (max-width: 767px) {
+  .hero-carousel__item__header h1 {
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2e86bc;
+    margin-bottom: 10px; }
+  .hero-carousel__item__header h3 {
+    display: none; } }
