@@ -6,53 +6,69 @@
 
   <div class="row">
     <div class="col-lg-6">
-      <ab-dropdown model="carBrand" options="carBrandDropdown" api-handler="getDropdownItem()"></ab-dropdown>
+      <ab-dropdown model="carBrand"
+                   options="carBrandDropdown"
+                   api-handler="getDropdownItem()">
+      </ab-dropdown>
     </div>
 
     <div class="col-lg-6">
-      <ab-dropdown model="carModel" options="carModelDropdown" depend-on="{brand: carBrand}" watch-on="carBrand"
-                   api-handler="getDropdownItem()"></ab-dropdown>
+      <ab-dropdown model="carModel"
+                   options="carModelDropdown"
+                   depend-on="{brand: carBrand}"
+                   watch-on="carBrand"
+                   api-handler="getDropdownItem()">
+      </ab-dropdown>
     </div>
   </div>
 
   <div class="row margin-bottom">
     <div class="col-lg-6">
-      <ab-dropdown model="carYear" options="carYearDropdown" depend-on="{brand: carBrand, model: carModel}" watch-on="carModel"
-                   api-handler="getDropdownItem()"></ab-dropdown>
+      <ab-dropdown model="carYear"
+                   options="carYearDropdown"
+                   depend-on="{brand: carBrand, model: carModel}"
+                   watch-on="carModel"
+                   api-handler="getDropdownItem()">
+      </ab-dropdown>
     </div>
     <div class="col-lg-6">
-      <ab-dropdown model="trimData" options="carTrimDropdown"
+      <ab-dropdown model="trimData"
+                   options="carTrimDropdown"
                    watch-on="carYear"
                    depend-on="{brand: carBrand, model:carModel, year: carYear}"
-                   api-handler="getDropdownItem()"></ab-dropdown>
+                   api-handler="getDropdownItem()">
+      </ab-dropdown>
     </div>
   </div>
   <div class="error-message" ng-show="showErrorMsg">
     <i class="m-cgg-icon--warning"></i> Please answer the questions so we can give you an accurate quote
   </div>
-  <ab-button class="btn-trackable"
-             options="getResultBtnOptions"
-             ng-show="!result"
-             ng-click="resultHandler()"
-             ga-category="car-insurance"
-             ga-action="Landing Page Buttons"
-             ga-label="Find the best insurance for my car">
-    <div class="car-selector-button__main-text">Find the cheapest Car Insurance for my car</div>
-  </ab-button>
 
-  <div class="result-container row" ng-show="result">
+  <div class="result-container row">
     <div class="col-lg-12">
       <div class="result-title">
         <strong>The cheapest deal for your car starts at :</strong>
       </div>
-      <div class="result-item">
+      <div class="result-item row">
+        <div class="col-xs-5 col-lg-6 result-label text-right">
+          <div class="result-label-price">Yearly price:</div>
+          <div class="result-label-deductible">Deductible:</div>
+        </div>
+        <div class="col-xs-7 col-lg-6 result-placeholder" ng-hide="result">
+            To get price, answer the above questions
+        </div>
+        <div class="col-xs-7 col-lg-6 result-numbers" ng-show="result">
+          <div class="text-left" ng-show="result">
+            <div class="result-price">
+              {{result.price.original | currency : '' : 0}} PHP
+            </div>
+            <div class="result-deductible">
+              {{result.price.deductible | currency : '' : 0}} PHP
+            </div>
+          </div>
+        </div>
 
-        <div class="result-price">
-          {{result.price.original | currency : '' : 0}} PHP/year
-        </div>
-        <div class="result-deductible">
-          Deductible: {{result.price.deductible | currency : '' : 0}} PHP
-        </div>
+        <img class="result-arrow" src="http://assets.ciab.compareglobal.co.uk/philippines/moneymax.ph/preview/ph/images/general/ab-orange-arrow.svg" ng-hide="result">
       </div>
     </div>
     <div class="col-lg-12">

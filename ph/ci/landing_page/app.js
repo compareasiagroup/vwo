@@ -21,7 +21,7 @@ $right
 
 // in local, we can't get the API work
 var host = isLocal
-  ? "http://philippines-qa.compareglobal.co.uk"
+  ? "https://www.moneymax.ph"
   : location.origin;
 
 // ------ HERE BEGINS THE ANGULAR APP --------
