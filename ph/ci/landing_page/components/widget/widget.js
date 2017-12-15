@@ -79,6 +79,20 @@ app
 
       if (val) {
         $scope.showErrorMsg = false;
+
+        if (typeof dataLayer !== "undefined") {
+          dataLayer.push({
+              "event": "simpleEvent",
+              "eventDetails" : {
+                  "category" : "car-insurance",
+                  "action": "Landing Page Buttons",
+                  "label": "Find the best insurance for my car",
+                  "location": "Landing Page"
+              }
+          });
+        }
+
+        $scope.resultHandler()
       }
     });
 
