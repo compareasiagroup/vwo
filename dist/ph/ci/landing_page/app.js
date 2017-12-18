@@ -240,7 +240,7 @@ app
               "event": "simpleEvent",
               "eventDetails" : {
                   "category" : "car-insurance",
-                  "action": "Landing Page Buttons",
+                  "action": "Clicked Front Page Buttons",
                   "label": "Find the best insurance for my car",
                   "location": "Landing Page"
               }
