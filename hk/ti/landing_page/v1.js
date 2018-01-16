@@ -1,5 +1,5 @@
 /* CUSTOM CODE */
-(function() {
+$(document).ready(function() {
   var lang = ciabConstants.fullLocale;
   var translation = {
     'en-HK': {
@@ -572,4 +572,4 @@
       return o.id === id;
     })[0] || {};
   }
-})();
+});
