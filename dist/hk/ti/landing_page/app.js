@@ -573,3 +573,6 @@ vwo_$(document).ready(function() {
     })[0] || {};
   }
 });
+
+// bootstrap need to be declared in app.js
+angular.element(document).ready(bootstrap());
