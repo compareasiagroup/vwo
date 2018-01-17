@@ -1,0 +1,28 @@
+<div class="ab-container" id="ab-test-app">
+  <h3 class="ab-title">Tell us about your car, and we’ll tell you the best
+    Car Insurance deals from all 20 providers in Denmark</h3>
+  <div class="ab-panel">
+    <div class="ab-panel-item ab-panel-plate">
+      <ab-car-plate model="plateNumber" options="plateNumberOptions"></ab-car-plate>
+    </div>
+
+    <div class="ab-separator-container">
+      <div class="ab-separator-text">OR</div>
+      <div class="ab-separator-line"></div>
+    </div>
+
+    <div class="ab-panel-item">
+      <ab-dropdown model="vehicleType" options="vehicleTypeOptions"></ab-dropdown>
+    </div>
+
+    <div class="ab-separator-container ab-separator-2">
+      <div class="ab-separator-line"></div>
+    </div>
+
+    <div class="ab-panel-item">
+      <a class="ab-cta-button" ng-click="click()">
+        Find Insurance
+      </a>
+    </div>
+  </div>
+</div>

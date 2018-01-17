@@ -1,0 +1,21 @@
+<div class="ab-plate" ng-class="{'disabled':options.disabled}">
+  <div class="ab-panel-label">
+    {{options.label}}
+    <ab-tooltip ng-if="options.tooltip">{{options.tooltip}}</ab-tooltip>
+  </div>
+  <div class="ab-plate-container" ng-class="{'error': options.showError}">
+    <input class="ab-input ab-input-plate"
+           placeholder="{{options.placeholder}}"
+           ng-class="{'error': options.showError}"
+           ng-model="model"
+           ng-disabled="options.disabled"
+    >
+    <div class="ab-plate__spinner-container">
+      <ab-spinner options="spinnerOptions" ng-show="options.showSpinner"></ab-spinner>
+      <i class="success m-cgg m-cgg-icon--boxes-tick" ng-show="options.showSuccessIcon"></i>
+    </div>
+    <div class="error-message" ng-show="options.showError">
+      {{options.error}}
+    </div>
+  </div>
+</div>
