@@ -1,0 +1,18 @@
+.ab-select
+  height: 55px
+  width: 275px
+  border-radius: 3px
+  border: solid 1px #cccbc8
+  line-height: 1.11
+  background-color: #ffffff
+  &:focus
+    border: solid 2px #77aa43
+    outline: none
+  @media (max-width: $screen-sm)
+    width: 100%
+  &-container
+    &.disabled select
+      cursor: not-allowed
+      background-color: #eeee
+    &.error select
+      border: 2px solid #ff0000
