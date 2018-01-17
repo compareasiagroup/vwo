@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write \"ph/**/*.js\" \"./*.js\" \"gulp/*.js\""
+    "prettier": "prettier --write \"ph/**/*.js\" \"dk/**/*.js\" \"./*.js\" \"gulp/*.js\""
   },
   "repository": {
     "type": "git",
