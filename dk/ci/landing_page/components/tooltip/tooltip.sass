@@ -1,0 +1,25 @@
+.ab-tooltip
+  position: relative
+  display: inline-block
+  &-icon
+    color: #77aa43
+    cursor: pointer
+  &-box
+    position: absolute
+    background-color: #77aa43
+    color: $color_white
+    bottom: 30px
+    left: -150px
+    padding: 5px 8px
+    border-radius: 3px 5px
+    width: 300px
+    &:after
+      content: " "
+      height: 5px
+      background-color: #77aa43
+      border-left: 7px solid $color_white
+      border-top: 7px solid #77aa43
+      border-right: 7px solid $color_white
+      position: absolute
+      bottom: -7px
+      left: 151px

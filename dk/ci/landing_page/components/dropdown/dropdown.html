@@ -1,0 +1,15 @@
+<div class="ab-select-container" ng-class="{'disabled':options.disabled, 'error':options.showError}">
+  <div class="ab-panel-label">
+    {{options.label}}
+    <ab-tooltip ng-if="options.tooltip">{{options.tooltip}}</ab-tooltip>
+  </div>
+  <select class="ab-select" ng-model="model" ng-disabled="options.disabled">
+    <option value="" ng-disbled="!options.selectablePlaceholder" selected ng-if="options.placeholder">
+      {{options.placeholder}}
+    </option>
+    <option ng-repeat="item in options.items" ng-value="item.value">{{item.text || item.value}}</option>
+  </select>
+  <div class="error-message" ng-show="options.showError">
+    {{options.error}}
+  </div>
+</div>

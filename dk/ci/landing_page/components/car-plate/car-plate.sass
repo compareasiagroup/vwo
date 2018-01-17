@@ -1,0 +1,52 @@
+.ab-plate
+  &.disabled input
+    cursor: not-allowed
+    background-color: #eee
+
+  &-container
+    width: 100%
+    position: relative
+    &:before
+      content: " "
+      display: block
+      position: absolute
+      left: 0
+      width: 50px
+      height: 55px
+      background-image: url(//www.samlino.dk/s3/denmark/samlino.dk/production/dk/images/general/platenumber.png)
+      background-position: 0
+      background-repeat: no-repeat
+      background-size: 35px
+      z-index: 2
+
+  &__spinner-container
+    position: absolute
+    right: 10px
+    top: 10px
+    .success
+      display: inline-block
+      color: green
+      line-height: 35px
+.ab-input
+  min-height: 55px
+  border-radius: 3px
+  border: solid 1px #cccbc8
+  font-size: 18px
+  line-height: 1.11
+
+  &:focus
+    outline: none
+    border: solid 2px #77aa43
+
+  &-plate
+    position: relative
+    padding-left: 52px
+    width: 100%
+    text-transform: uppercase
+
+.error
+  .ab-input
+    border: solid 2px $color-red
+
+.error-message
+  color: $color-red
