@@ -63,22 +63,19 @@ app.factory("abTestService", ["$http", function($http) {
   return service;
 }]);
 
-app.directive("abCarPlate", [
-  "abTestService",
-  function(abTestService) {
-    return {
-      replace: true,
-      scope: {
-        options: "=?",
-        model: "="
-      },
-      templateUrl: "car-plate/car-plate.html",
-      link: function(scope) {
-        scope.spinnerOptions = { color: "grey" };
-      }
-    };
-  }
-]);
+app.directive("abButton", function() {
+  return {
+    replace: true,
+    transclude: true,
+    scope: {
+      options: "=?"
+    },
+    templateUrl: "button/button.html",
+    link: function(scope, elem, attr) {
+      scope.options = scope.options || {};
+    }
+  };
+});
 
 app.directive("abDropdown", [
   function() {
@@ -100,11 +97,50 @@ app.directive("abDropdown", [
   }
 ]);
 
-angular.module('abTestApp').run(['$templateCache', function($templateCache) {$templateCache.put('car-plate/car-plate.html','<div class="ab-plate" ng-class="{\'disabled\':options.disabled}">\n  <div class="ab-panel-label">\n    {{options.label}}\n    <ab-tooltip ng-if="options.tooltip">{{options.tooltip}}</ab-tooltip>\n  </div>\n  <div class="ab-plate-container" ng-class="{\'error\': options.showError}">\n    <input class="ab-input ab-input-plate"\n           placeholder="{{options.placeholder}}"\n           ng-class="{\'error\': options.showError}"\n           ng-model="model"\n           ng-disabled="options.disabled"\n    >\n    <div class="ab-plate__spinner-container">\n      <ab-spinner options="spinnerOptions" ng-show="options.showSpinner"></ab-spinner>\n      <i class="success m-cgg m-cgg-icon--boxes-tick" ng-show="options.showSuccessIcon"></i>\n    </div>\n    <div class="error-message" ng-show="options.showError">\n      {{options.error}}\n    </div>\n  </div>\n</div>');
+app.directive("abCarPlate", [
+  "abTestService",
+  function(abTestService) {
+    return {
+      replace: true,
+      scope: {
+        options: "=?",
+        model: "="
+      },
+      templateUrl: "car-plate/car-plate.html",
+      link: function(scope) {
+        scope.spinnerOptions = { color: "grey" };
+      }
+    };
+  }
+]);
+
+angular.module('abTestApp').run(['$templateCache', function($templateCache) {$templateCache.put('button/button.html','<a class="ab-button"\n   ng-class="{\'disabled\': options.showSpinner}">\n  <div ng-transclude\n       ng-if="!options.showSpinner"></div>\n  <ab-spinner options="options.spinnerOptions" ng-show="options.showSpinner"></ab-spinner>\n</a>\n');
 $templateCache.put('dropdown/dropdown.html','<div class="ab-select-container" ng-class="{\'disabled\':options.disabled, \'error\':options.showError}">\n  <div class="ab-panel-label">\n    {{options.label}}\n    <ab-tooltip ng-if="options.tooltip">{{options.tooltip}}</ab-tooltip>\n  </div>\n  <select class="ab-select" ng-model="model" ng-disabled="options.disabled">\n    <option value="" ng-disbled="!options.selectablePlaceholder" selected ng-if="options.placeholder">\n      {{options.placeholder}}\n    </option>\n    <option ng-repeat="item in options.items" ng-value="item.value">{{item.text || item.value}}</option>\n  </select>\n  <div class="error-message" ng-show="options.showError">\n    {{options.error}}\n  </div>\n</div>');
-$templateCache.put('tooltip/tooltip.html','<div class="ab-tooltip">\n  <div ng-show="showTooltip" class="ab-tooltip-box">\n    <ng-transclude></ng-transclude>\n  </div>\n  <i class="m-cgg m-cgg-icon--i-tooltip ab-tooltip-icon"\n     ng-mouseover="show()"\n     ng-mouseout="hide()"\n  ></i>\n\n</div>');
+$templateCache.put('car-plate/car-plate.html','<div class="ab-plate" ng-class="{\'disabled\':options.disabled}">\n  <div class="ab-panel-label">\n    {{options.label}}\n    <ab-tooltip ng-if="options.tooltip">{{options.tooltip}}</ab-tooltip>\n  </div>\n  <div class="ab-plate-container" ng-class="{\'error\': options.showError}">\n    <input class="ab-input ab-input-plate"\n           placeholder="{{options.placeholder}}"\n           ng-class="{\'error\': options.showError}"\n           ng-model="model"\n           ng-disabled="options.disabled"\n    >\n    <div class="ab-plate__spinner-container">\n      <ab-spinner options="spinnerOptions" ng-show="options.showSpinner"></ab-spinner>\n      <i class="success m-cgg m-cgg-icon--boxes-tick" ng-show="options.showSuccessIcon"></i>\n    </div>\n    <div class="error-message" ng-show="options.showError">\n      {{options.error}}\n    </div>\n  </div>\n</div>');
 $templateCache.put('spinner/spinner.html','<span class="cgg-spinner" ng-class="{\'cgg-spinner__{{options.color}}\': options.color}">\n    <span class="sk-placeholder" ng-show="options.placeholder" ng-class="{\'sk-placeholder__{{options.size}}\': options.size}" style="float: {{options.placeholder.position ? options.placeholder.position : \'left\'}}">{{options.placeholder}}</span>\n    <div class="sk-circle" ng-class="{\'sk-circle__{{options.size}}\': options.size}">\n        <div class="sk-circle1 sk-child"></div>\n        <div class="sk-circle2 sk-child"></div>\n        <div class="sk-circle3 sk-child"></div>\n        <div class="sk-circle4 sk-child"></div>\n        <div class="sk-circle5 sk-child"></div>\n        <div class="sk-circle6 sk-child"></div>\n        <div class="sk-circle7 sk-child"></div>\n        <div class="sk-circle8 sk-child"></div>\n        <div class="sk-circle9 sk-child"></div>\n        <div class="sk-circle10 sk-child"></div>\n        <div class="sk-circle11 sk-child"></div>\n        <div class="sk-circle12 sk-child"></div>\n    </div>\n</span>');
-$templateCache.put('widget/widget.html','<div class="ab-container" id="ab-test-app">\n  <h3 class="ab-title">Tell us about your car, and we\u2019ll tell you the best\n    Car Insurance deals from all 20 providers in Denmark</h3>\n  <div class="ab-panel">\n    <div class="ab-panel-item ab-panel-plate">\n      <ab-car-plate model="plateNumber" options="plateNumberOptions"></ab-car-plate>\n    </div>\n\n    <div class="ab-separator-container">\n      <div class="ab-separator-text">OR</div>\n      <div class="ab-separator-line"></div>\n    </div>\n\n    <div class="ab-panel-item">\n      <ab-dropdown model="vehicleType" options="vehicleTypeOptions"></ab-dropdown>\n    </div>\n\n    <div class="ab-separator-container ab-separator-2">\n      <div class="ab-separator-line"></div>\n    </div>\n\n    <div class="ab-panel-item">\n      <a class="ab-cta-button" ng-click="click()">\n        Find Insurance\n      </a>\n    </div>\n  </div>\n\n  <div class="ab-trustpilot-container">\n    <div class="trustpilot-widget" data-locale="da-DK" data-template-id="5419b732fbfb950b10de65e5"\n         data-businessunit-id="5473401a00006400057bbac8" data-style-height="20px" data-style-width="100%"\n         data-theme="dark">\n      <a href="https://dk.trustpilot.com/review/samlino.dk" target="_blank">Trustpilot</a>\n    </div>\n    <div class="ab-trustpilot__eye"><img src="{{assetsUrl}}/emaerket-white.png"></div>\n  </div>\n  <div class="ab-footer">\n    <span>As seen on:</span>\n    <span ng-repeat="item in footerImages">\n      <img ng-src="{{assetsUrl}}/{{item}}.png">\n    </span>\n  </div>\n</div>\n');}]);
+$templateCache.put('tooltip/tooltip.html','<div class="ab-tooltip">\n  <div ng-show="showTooltip" class="ab-tooltip-box">\n    <ng-transclude></ng-transclude>\n  </div>\n  <i class="m-cgg m-cgg-icon--i-tooltip ab-tooltip-icon"\n     ng-mouseover="show()"\n     ng-mouseout="hide()"\n  ></i>\n\n</div>');
+$templateCache.put('widget/widget.html','<div class="ab-container" id="ab-test-app">\n  <h3 class="ab-title">Tell us about your car, and we\u2019ll tell you the best\n    Car Insurance deals from all 20 providers in Denmark</h3>\n  <div class="ab-panel">\n    <div class="ab-panel-item ab-panel-plate">\n      <ab-car-plate model="plateNumber" options="plateNumberOptions"></ab-car-plate>\n    </div>\n\n    <div class="ab-separator-container">\n      <div class="ab-separator-text">OR</div>\n      <div class="ab-separator-line"></div>\n    </div>\n\n    <div class="ab-panel-item">\n      <ab-dropdown model="vehicleType" options="vehicleTypeOptions"></ab-dropdown>\n    </div>\n\n    <div class="ab-separator-container ab-separator-2">\n      <div class="ab-separator-line"></div>\n    </div>\n\n    <div class="ab-panel-item">\n      <ab-button class="btn-trackable ab-cta-button"\n                 options="buttonOptions"\n                 ng-click="click()"\n                 ga-category="car-insurance"\n                 ga-action="Landing Page Buttons"\n                 ga-label="Go to funnel">\n        <div class="car-selector-button__main-text">Find Insurance</div>\n      </ab-button>\n    </div>\n  </div>\n\n  <div class="ab-trustpilot-container">\n    <div class="trustpilot-widget" data-locale="da-DK" data-template-id="5419b732fbfb950b10de65e5"\n         data-businessunit-id="5473401a00006400057bbac8" data-style-height="20px" data-style-width="100%"\n         data-theme="dark">\n      <a href="https://dk.trustpilot.com/review/samlino.dk" target="_blank">Trustpilot</a>\n    </div>\n    <div class="ab-trustpilot__eye"><img src="{{assetsUrl}}/emaerket-white.png"></div>\n  </div>\n  <div class="ab-footer">\n    <span>As seen on:</span>\n    <span ng-repeat="item in footerImages">\n      <img ng-src="{{assetsUrl}}/{{item}}.png">\n    </span>\n  </div>\n</div>\n');}]);
+app
+  .directive("abSpinner", function() {
+    return {
+      restrict: "AE",
+      replace: true,
+      templateUrl: "spinner/spinner.html",
+      scope: {
+        options: "=?"
+      },
+      controller: "abSpinner"
+    };
+  })
+  .controller("abSpinner", [
+    "$scope",
+    function($scope) {
+      $scope.options = $scope.options || {};
+      $scope.options.size = $scope.options.size || "medium";
+      $scope.options.color = "grey";
+    }
+  ]);
+
 app.directive("abTooltip", [
   function() {
     return {
@@ -130,27 +166,6 @@ app.directive("abTooltip", [
 ]);
 
 app
-  .directive("abSpinner", function() {
-    return {
-      restrict: "AE",
-      replace: true,
-      templateUrl: "spinner/spinner.html",
-      scope: {
-        options: "=?"
-      },
-      controller: "abSpinner"
-    };
-  })
-  .controller("abSpinner", [
-    "$scope",
-    function($scope) {
-      $scope.options = $scope.options || {};
-      $scope.options.size = $scope.options.size || "medium";
-      $scope.options.color = "grey";
-    }
-  ]);
-
-app
   .directive("abWidget", function() {
     return {
       templateUrl: "widget/widget.html",
@@ -170,6 +185,12 @@ app
         "ekstrabladet",
         "politiken"
       ];
+
+      $scope.buttonOptions = {
+        spinnerOptions: {
+          size: "medium"
+        }
+      };
 
       $scope.plateNumberOptions = {
         label: "Enter your car's licence number",
@@ -261,16 +282,23 @@ app
         var isValidPlate = $scope.plateNumberOptions.isValid;
 
         var url = location.origin + "/bilforsikring/indhentpriser#/step/1";
-
+        $scope.buttonOptions.showSpinner = true;
         if (isValidPlate) {
           console.log("goto funnel with plate number", $scope.plateNumber);
-          location.href = url + "?licensePlateNum=" + $scope.plateNumber;
+          location.href =
+            url +
+            "?knowLicensePlateNum=true&licensePlateNum=" +
+            $scope.plateNumber;
         } else if (isValidVehicle) {
           console.log("goto funnel with car type", $scope.vehicleType);
-          location.href = url + "?licensePlateType=" + $scope.vehicleType;
+          location.href =
+            url +
+            "?knowLicensePlateNum=false&licensePlateType=" +
+            $scope.vehicleType;
         } else {
           $scope.vehicleTypeOptions.showError = true;
           $scope.plateNumberOptions.showError = true;
+          $scope.buttonOptions.showSpinner = false;
         }
       };
     }
