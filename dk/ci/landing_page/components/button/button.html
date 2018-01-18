@@ -1,0 +1,6 @@
+<a class="ab-button"
+   ng-class="{'disabled': options.showSpinner}">
+  <div ng-transclude
+       ng-if="!options.showSpinner"></div>
+  <ab-spinner options="options.spinnerOptions" ng-show="options.showSpinner"></ab-spinner>
+</a>
