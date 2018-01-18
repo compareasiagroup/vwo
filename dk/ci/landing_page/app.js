@@ -15,7 +15,9 @@ var bgImageUrl =
 $(".hero-carousel_item .container").css("background", "none");
 
 // add full screen background iamge
-$(".hero-carousel_item").css("background-image", "url(" + bgImageUrl + ")");
+$(".hero-carousel_item")
+  .css("background-image", "url(" + bgImageUrl + ")")
+  .css("position", "relative");
 
 var $container = $(".hero-carousel__item__row");
 
