@@ -23,6 +23,11 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5)
     padding: 20px
     min-height: 117px
+    &:after
+      content: " "
+      display: block
+      height: 0
+      clear: both
     &-plate
       width: 275px
       @media (max-width: $screen-sm)
