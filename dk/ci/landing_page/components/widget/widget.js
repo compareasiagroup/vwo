@@ -9,6 +9,16 @@ app
     "$scope",
     "abTestService",
     function($scope, abTestService) {
+      $scope.assetsUrl = assetsUrl; // global variable from app.js;
+      $scope.footerImages = [
+        "tv-2-news",
+        "tv-2-lorry",
+        "bitmap",
+        "berlingske",
+        "ekstrabladet",
+        "politiken"
+      ];
+
       $scope.plateNumberOptions = {
         label: "Enter your car's licence number",
         tooltip: "Ved at indtaste din nummerplade kan vi nemt finde din bil",
