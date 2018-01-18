@@ -19,6 +19,12 @@ app
         "politiken"
       ];
 
+      $scope.buttonOptions = {
+        spinnerOptions: {
+          size: "medium"
+        }
+      };
+
       $scope.plateNumberOptions = {
         label: "Enter your car's licence number",
         tooltip: "Ved at indtaste din nummerplade kan vi nemt finde din bil",
@@ -109,16 +115,23 @@ app
         var isValidPlate = $scope.plateNumberOptions.isValid;
 
         var url = location.origin + "/bilforsikring/indhentpriser#/step/1";
-
+        $scope.buttonOptions.showSpinner = true;
         if (isValidPlate) {
           console.log("goto funnel with plate number", $scope.plateNumber);
-          location.href = url + "?licensePlateNum=" + $scope.plateNumber;
+          location.href =
+            url +
+            "?knowLicensePlateNum=true&licensePlateNum=" +
+            $scope.plateNumber;
         } else if (isValidVehicle) {
           console.log("goto funnel with car type", $scope.vehicleType);
-          location.href = url + "?licensePlateType=" + $scope.vehicleType;
+          location.href =
+            url +
+            "?knowLicensePlateNum=false&licensePlateType=" +
+            $scope.vehicleType;
         } else {
           $scope.vehicleTypeOptions.showError = true;
           $scope.plateNumberOptions.showError = true;
+          $scope.buttonOptions.showSpinner = false;
         }
       };
     }
