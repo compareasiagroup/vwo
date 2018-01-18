@@ -11,8 +11,8 @@ if (typeof isLocal === "undefined") {
 var bgImageUrl =
   "//www.samlino.dk/s3/denmark/samlino.dk/production/dk/images/general/xdesktop-background.jpg.pagespeed.ic.tMrOI2ButK.webp";
 var assetsUrl = isLocal
-  ? "//denmark-integration.compareglobal.co.uk//s3/denmark/samlino.dk/integration/dk/images/general"
-  : "";
+  ? "//denmark-integration.compareglobal.co.uk/s3/denmark/samlino.dk/integration/dk/images/general"
+  : "/s3/denmark/samlino.dk/integration/dk/images/general";
 
 // remove little car & tree background image
 $(".hero-carousel_item .container").css("background", "none");
