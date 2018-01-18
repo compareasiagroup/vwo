@@ -246,7 +246,6 @@
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   padding: 20px;
-  float: left;
   min-height: 117px; }
   .ab-panel-plate {
     width: 275px; }
@@ -342,3 +341,18 @@
     .ab-separator-2 {
       width: 100%;
       margin-top: 15px; } }
+
+.ab-trustpilot-container {
+  margin-top: 120px;
+  margin-bottom: 20px; }
+  @media (max-width: 767px) {
+    .ab-trustpilot-container {
+      margin: 0 -5px;
+      padding: 17px 0;
+      height: 55px;
+      background-color: #000; } }
+  .ab-trustpilot-container:after {
+    content: " ";
+    clear: both;
+    display: block;
+    height: 0; }

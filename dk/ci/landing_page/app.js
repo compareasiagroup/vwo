@@ -10,10 +10,13 @@ if (typeof isLocal === "undefined") {
 
 var bgImageUrl =
   "//www.samlino.dk/s3/denmark/samlino.dk/production/dk/images/general/xdesktop-background.jpg.pagespeed.ic.tMrOI2ButK.webp";
-var $bg = $(".hero-carousel_item").css(
-  "background-image",
-  "url(" + bgImageUrl + ")"
-);
+
+// remove little car & tree background image
+$(".hero-carousel_item .container").css("background", "none");
+
+// add full screen background iamge
+$(".hero-carousel_item").css("background-image", "url(" + bgImageUrl + ")");
+
 var $container = $(".hero-carousel__item__row");
 
 $container.html("<ab-widget></ab-widget>");
