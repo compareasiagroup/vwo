@@ -114,6 +114,7 @@
         margin-top: 15px
 
 .ab-trustpilot-container
+  position: relative
   margin-top: 120px
   margin-bottom: 20px
   @media (max-width: $screen-sm)
@@ -128,7 +129,17 @@
     display: block
     height: 0
 
+.ab-trustpilot__eye
+  display: none
+  @media (max-width: $screen-sm)
+    display: block
+    float: left
+    img
+      height: 20px
+
 .trustpilot-widget
+  @media (max-width: $screen-sm)
+    float: left
 
 .ab-footer
   height: 80px
@@ -142,3 +153,22 @@
   line-height: 80px
   font-size: 22px
   font-weight: bold
+  @media (max-width: $screen-sm)
+    position: relative
+    left: inherit
+    right: inherit
+    bottom: inherit
+    margin: 0 -5px
+    height: auto
+    line-height: 35px
+    padding: 10px 0
+
+  span
+    display: inline-block
+    padding-left: 35px
+    &:first-child
+      padding: 0
+    @media (max-width: $screen-sm)
+      padding: 0 5px
+      &:first-child
+        display: block

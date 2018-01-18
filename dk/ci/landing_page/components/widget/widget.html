@@ -32,8 +32,12 @@
          data-theme="dark">
       <a href="https://dk.trustpilot.com/review/samlino.dk" target="_blank">Trustpilot</a>
     </div>
+    <div class="ab-trustpilot__eye"><img src="{{assetsUrl}}/emaerket-white.png"></div>
   </div>
   <div class="ab-footer">
-    As seen on:
+    <span>As seen on:</span>
+    <span ng-repeat="item in footerImages">
+      <img ng-src="{{assetsUrl}}/{{item}}.png">
+    </span>
   </div>
 </div>
