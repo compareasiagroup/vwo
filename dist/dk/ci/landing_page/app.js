@@ -181,6 +181,7 @@ app
       abTestService,
       $timeout) {
       var checkPlateNumberTimeout;
+      var plateNumberDetails;
 
       var sendDataLayer = function () {
         return $timeout(function() {
@@ -280,6 +281,8 @@ app
                 if (isValidByApi) {
                   $scope.vehicleTypeOptions.disabled = true;
                   $scope.vehicleTypeOptions.showError = false;
+
+                  plateNumberDetails = data;
                 }
               })
               .catch(function(e) {
@@ -316,8 +319,12 @@ app
 
             location.href =
               url +
-              "?knowLicensePlateNum=true&licensePlateNum=" +
-              $scope.plateNumber;
+              "?knowLicensePlateNum=true" +
+              "&licensePlateNum=" + $scope.plateNumber +
+              "&carBrand=" + plateNumberDetails[0].brand +
+              "&carModel=" + plateNumberDetails[0].model +
+              "&carVintage=" + plateNumberDetails[0].year +
+              "&carEngineSize=" + plateNumberDetails[0].engine;
           });
 
         } else if (isValidVehicle) {
