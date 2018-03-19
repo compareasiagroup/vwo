@@ -6,7 +6,7 @@ if (typeof vwo_$ !== "undefined") {
 if (typeof isLocal === "undefined") {
   var isLocal = true;
 }
-var $bannerContainer = $(".carinsurance-landing").find(".ci");
+var $bannerContainer = $(".carinsurance-landing").find(".item.ci");
 
 $bannerContainer.prepend('<div class="promo-banner"><div class="container"><img class="hidden-xs" src="http://assets.ciab.compareglobal.co.uk/philippines/moneymax.ph/preview/ph/images/general/ci-promo-desktop.jpg"><img class="visible-xs" src="http://assets.ciab.compareglobal.co.uk/philippines/moneymax.ph/preview/ph/images/general/ci-promo-mobile.jpg"></div></div>');
 var $ctaBtn = $(".hero-carousel__item__cta");
