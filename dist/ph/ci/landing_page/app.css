@@ -1,3 +1,10 @@
+.promo-banner {
+  background-color: #002a54; }
+  .promo-banner .container {
+    padding: 0; }
+    .promo-banner .container img {
+      max-width: 100%; }
+
 .car-selector-button {
   display: block;
   width: 100%;
@@ -367,13 +374,3 @@ select {
   @media (max-width: 767px) {
     .result-arrow {
       top: -40px; } }
-
-@media (max-width: 767px) {
-  .hero-carousel__item__header h1 {
-    font-size: 16px;
-    line-height: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #2e86bc;
-    margin-bottom: 10px; }
-  .hero-carousel__item__header h3 {
-    display: none; } }
