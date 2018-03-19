@@ -8,7 +8,7 @@ if (typeof isLocal === "undefined") {
 }
 
 var $ctaBtn = $(".hero-carousel__item__cta");
-$ctaBtn.hide();
+$ctaBtn.addClass("visible-xs");
 
 var $left = $(".default-landing").first();
 var $right = $(".hero-carousel__item__row").find(".col-lg-5");
@@ -16,7 +16,7 @@ $left.removeClass("col-lg-7 col-md-7").addClass("col-lg-6 col-md-6");
 
 $right
   .removeClass("col-lg-5 col-md-5 hidden-xs hidden-sm")
-  .addClass("col-lg-6 col-md-6")
+  .addClass("col-lg-6 col-md-6 hidden-xs")
   .html("<ab-widget></ab-widget>");
 
 // in local, we can't get the API work
