@@ -8,7 +8,7 @@ if (typeof isLocal === "undefined") {
 }
 var $bannerContainer = $(".carinsurance-landing").find(".item.ci");
 
-$bannerContainer.prepend('<div class="promo-banner"><div class="container"><img class="hidden-xs" src="http://assets.ciab.compareglobal.co.uk/philippines/moneymax.ph/preview/ph/images/general/ci-promo-desktop.jpg"><img class="visible-xs" src="http://assets.ciab.compareglobal.co.uk/philippines/moneymax.ph/preview/ph/images/general/ci-promo-mobile.jpg"></div></div>');
+$bannerContainer.prepend('<div class="promo-banner"><div class="container"><img class="hidden-xs" src="https://www.moneymax.ph/s3/philippines/moneymax.ph/production/ph/images/general/ci-promo-desktop.jpg"><img class="visible-xs" src="https://www.moneymax.ph/s3/philippines/moneymax.ph/production/ph/images/general/ci-promo-mobile.jpg"></div></div>');
 var $ctaBtn = $(".hero-carousel__item__cta");
 $ctaBtn.addClass("visible-xs");
 
